@@ -39,6 +39,9 @@ function Home() {
           <Button asChild variant="outline">
             <Link to="/treino">Treino</Link>
           </Button>
+          <Button asChild variant="ghost">
+            <Link to="/documento">Documento académico</Link>
+          </Button>
         </div>
       </section>
 

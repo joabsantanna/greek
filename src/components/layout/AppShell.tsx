@@ -15,6 +15,7 @@ const DESKTOP_EXTRA = [
   { to: "/gramatica", label: "Gramática" },
   { to: "/paradigmas", label: "Paradigmas" },
   { to: "/oikos", label: "Oikos" },
+  { to: "/documento", label: "Ensaio" },
 ] as const;
 
 function OwlMark() {
@@ -34,7 +35,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   return (
     <div className="parchment meander-top min-h-screen pb-20 md:pb-0">
-      <header className="sticky top-0 z-30 border-b border-border/70 bg-bg/90 backdrop-blur">
+      <header className="print:hidden sticky top-0 z-30 border-b border-border/70 bg-bg/90 backdrop-blur">
         <div className="mx-auto flex max-w-5xl items-center gap-4 px-4 py-3">
           <Link to="/" className="flex items-center gap-2">
             <OwlMark />
@@ -72,7 +73,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         </div>
       </header>
       <main className="mx-auto max-w-5xl px-4 py-8">{children}</main>
-      <nav className="fixed inset-x-0 bottom-0 z-30 border-t border-border bg-surface/95 backdrop-blur md:hidden">
+      <nav className="print:hidden fixed inset-x-0 bottom-0 z-30 border-t border-border bg-surface/95 backdrop-blur md:hidden">
         <div className="grid grid-cols-5">
           {NAV.map((n) => {
             const Icon = n.icon;

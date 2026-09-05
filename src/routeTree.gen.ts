@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AlfabetoRouteImport } from './routes/alfabeto'
+import { Route as DocumentoRouteImport } from './routes/documento'
 import { Route as FlashcardsRouteImport } from './routes/flashcards'
 import { Route as GramaticaRouteImport } from './routes/gramatica'
 import { Route as LexicoRouteImport } from './routes/lexico'
@@ -27,6 +28,11 @@ const IndexRoute = IndexRouteImport.update({
 const AlfabetoRoute = AlfabetoRouteImport.update({
   id: '/alfabeto',
   path: '/alfabeto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocumentoRoute = DocumentoRouteImport.update({
+  id: '/documento',
+  path: '/documento',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FlashcardsRoute = FlashcardsRouteImport.update({
@@ -68,6 +74,7 @@ const CapituloIdRoute = CapituloIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/alfabeto': typeof AlfabetoRoute
+  '/documento': typeof DocumentoRoute
   '/flashcards': typeof FlashcardsRoute
   '/gramatica': typeof GramaticaRoute
   '/lexico': typeof LexicoRoute
@@ -79,6 +86,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/alfabeto': typeof AlfabetoRoute
+  '/documento': typeof DocumentoRoute
   '/flashcards': typeof FlashcardsRoute
   '/gramatica': typeof GramaticaRoute
   '/lexico': typeof LexicoRoute
@@ -91,6 +99,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/alfabeto': typeof AlfabetoRoute
+  '/documento': typeof DocumentoRoute
   '/flashcards': typeof FlashcardsRoute
   '/gramatica': typeof GramaticaRoute
   '/lexico': typeof LexicoRoute
@@ -104,6 +113,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/alfabeto'
+    | '/documento'
     | '/flashcards'
     | '/gramatica'
     | '/lexico'
@@ -115,6 +125,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/alfabeto'
+    | '/documento'
     | '/flashcards'
     | '/gramatica'
     | '/lexico'
@@ -126,6 +137,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/alfabeto'
+    | '/documento'
     | '/flashcards'
     | '/gramatica'
     | '/lexico'
@@ -138,6 +150,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AlfabetoRoute: typeof AlfabetoRoute
+  DocumentoRoute: typeof DocumentoRoute
   FlashcardsRoute: typeof FlashcardsRoute
   GramaticaRoute: typeof GramaticaRoute
   LexicoRoute: typeof LexicoRoute
@@ -161,6 +174,13 @@ declare module '@tanstack/react-router' {
       path: '/alfabeto'
       fullPath: '/alfabeto'
       preLoaderRoute: typeof AlfabetoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/documento': {
+      id: '/documento'
+      path: '/documento'
+      fullPath: '/documento'
+      preLoaderRoute: typeof DocumentoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/flashcards': {
@@ -218,6 +238,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AlfabetoRoute: AlfabetoRoute,
+  DocumentoRoute: DocumentoRoute,
   FlashcardsRoute: FlashcardsRoute,
   GramaticaRoute: GramaticaRoute,
   LexicoRoute: LexicoRoute,
