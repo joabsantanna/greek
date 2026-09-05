@@ -1,0 +1,70 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-serif: "EB Garamond", "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  --font-sans: "Source Sans 3", "Source Sans Pro", "Segoe UI", sans-serif;
+  --color-bg: #f3ede3;
+  --color-bg-deep: #e8dfd0;
+  --color-surface: #faf6ef;
+  --color-fg: #1c1612;
+  --color-muted: #6a5d52;
+  --color-border: #d4c7b4;
+  --color-primary: #8b3226;
+  --color-primary-fg: #faf6ef;
+  --color-aegean: #2f4a4c;
+  --color-parchment: #f3ede3;
+  --color-gold: #c4a574;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  html {
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+}
+
+.font-greek {
+  font-family: var(--font-serif);
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+.parchment {
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(196, 165, 116, 0.12), transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(47, 74, 76, 0.06), transparent 45%);
+}
+
+.meander-top {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-primary) 0 6px,
+    transparent 6px 10px,
+    var(--color-primary) 10px 12px,
+    transparent 12px 16px,
+    var(--color-primary) 16px 22px,
+    transparent 22px 26px
+  );
+  background-size: 26px 8px;
+  background-repeat: repeat-x;
+  background-position: top;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
