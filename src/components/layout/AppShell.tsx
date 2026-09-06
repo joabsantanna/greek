@@ -15,7 +15,6 @@ const DESKTOP_EXTRA = [
   { to: "/gramatica", label: "Gramática" },
   { to: "/paradigmas", label: "Paradigmas" },
   { to: "/oikos", label: "Oikos" },
-  { to: "/documento", label: "Ensaio" },
 ] as const;
 
 function OwlMark() {

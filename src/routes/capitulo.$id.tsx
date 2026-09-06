@@ -7,7 +7,6 @@ import { GreekReader } from "@/components/greek/GreekReader";
 import { ExerciseList } from "@/components/greek/ExerciseList";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
 import { useProgress } from "@/lib/progress";
 import { cn } from "@/lib/utils";
 import type { GrammarBlock } from "@/data/types";

@@ -12,14 +12,14 @@ export const Route = createFileRoute("/flashcards")({ component: Flashcards });
 function Flashcards() {
   const srs = useProgress((s) => s.srs);
   const review = useProgress((s) => s.reviewSrs);
-  const now = Date.now();
   const due = useMemo(() => {
+    const now = Date.now();
     const pending = LEXICON.filter((e) => {
       const c = srs[e.lemma];
       return !c || c.due <= now;
     });
     return pending.length ? pending : LEXICON.slice(0, 8);
-  }, [srs, now]);
+  }, [srs]);
   const [i, setI] = useState(0);
   const [flip, setFlip] = useState(false);
   const card = due[i % due.length];

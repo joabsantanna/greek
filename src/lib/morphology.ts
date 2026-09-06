@@ -272,7 +272,7 @@ function indexEntry(entry: VocabEntry) {
   const n = stripDiacritics(head);
   if (entry.pos === "v.") {
     add(head, "lema verbal", entry);
-    if (n.endsWith("εω") || n.endsWith("ῶ") && entry.lemma.includes("έω")) {
+    if (n.endsWith("εω") || (n.endsWith("ῶ") && entry.lemma.includes("έω"))) {
       const stem = n.endsWith("εω") ? n.slice(0, -2) : n.slice(0, -1);
       conjEo(stem, entry);
     } else if (n.endsWith("αω")) {
@@ -300,7 +300,7 @@ function indexEntry(entry: VocabEntry) {
     decline2n(n.slice(0, -2), entry);
     return;
   }
-  if ((entry.pos === "s." || entry.pos === "n.pr.") && (n.endsWith("η") || n.endsWith("η"))) {
+  if ((entry.pos === "s." || entry.pos === "n.pr.") && n.endsWith("η")) {
     decline1e(n.slice(0, -1), entry);
     return;
   }
