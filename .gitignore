@@ -1,4 +1,5 @@
 node_modules
+.node_modules.lock
 .vercel
 dist
 .output
@@ -12,3 +13,6 @@ dist
 screenshots
 artifacts
 public/__grok
+AGENTS.md
+AGENTS.project.md
+.prettierrc
